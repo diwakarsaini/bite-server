@@ -1,8 +1,10 @@
 const express = require("express");
 let blogs = require("../models/blog");
+let user = require("../models/user");
 const { check, validationResult } = require("express-validator");
 const authMiddleware = require("../middlewares/authMiddleware");
 const authMiddlewareIsAdmin = require("../middlewares/authMiddlewareIsAdmin");
+const user = require("../models/user");
 
 const router = express.Router();
 
@@ -20,6 +22,8 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const blogDB = await blogs.find();
+    const user = await user.findById(blogDB.author);
+    blogDB.author = user.name;
     res.send(blogDB);
   } catch (err) {
     return res.status(500).send("Server error");
