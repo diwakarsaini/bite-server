@@ -11,8 +11,8 @@ const router = express.Router();
 
 router.get("/users", async (req, res) => {
   try {
-    const blogDB = await user.findById("624bb1552bec234d1da9fcff");
-    res.send(blogDB);
+    const users = await user.find();
+    res.send(users);
   } catch (err) {
     return res.status(500).send("Server error");
   }
@@ -20,8 +20,10 @@ router.get("/users", async (req, res) => {
 
 router.get("/isadmin", async (req, res) => {
   try {
+    const token = req.header("x-auth-token");
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const userData = decoded.user;
+    console.log(userData);
     if (userData.role[0] === "Admin") {
       return res.send("true");
     } else {
