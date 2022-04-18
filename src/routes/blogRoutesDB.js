@@ -29,8 +29,8 @@ router.get("/users", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const blogDB = await blogs.find();
-    const username = await user.findById(blogDB.author);
-    blogDB.author = username.name;
+    // const username = await user.findById(blogDB.author);
+    // blogDB.author = username.name;
     res.send(blogDB);
   } catch (err) {
     return res.status(500).send("Server error");
