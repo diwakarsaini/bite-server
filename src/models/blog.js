@@ -21,6 +21,7 @@ const blogSchema = Schema({
   imgUrl: {
     type: String,
     require: [true, "Please add Blog image"],
+    default: "abc",
   },
 });
 
