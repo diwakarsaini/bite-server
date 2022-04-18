@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get("/users", async (req, res) => {
   try {
-    const blogDB = await user.find();
+    const blogDB = await user.findById("624bb1552bec234d1da9fcff");
     res.send(blogDB);
   } catch (err) {
     return res.status(500).send("Server error");
