@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
 
 require("dotenv").config();
 
-let User = require("../models/User");
+let User = require("../models/user");
 
 //Get all users
 router.get("/", async (req, res) => {
