@@ -30,10 +30,10 @@ router.get("/", async (req, res) => {
   try {
     const blogDB = await blogs.find();
     console.log(blogDB);
-    const userName = await user.findById(blogDB.author);
-    console.log(userName);
+    // const userName = await user.findById(blogDB.author);
+    // console.log(userName);
 
-    blogDB.author = userName.name;
+    // blogDB.author = userName.name;
     res.send(blogDB);
   } catch (err) {
     return res.status(500).send("Server error");
