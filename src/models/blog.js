@@ -18,6 +18,10 @@ const blogSchema = Schema({
     type: String,
     require: [true, "Please add Blog Description"],
   },
+  imgUrl: {
+    type: String,
+    require: [true, "Please add Blog image"],
+  },
 });
 
 module.exports = mongoose.model("Blog", blogSchema);

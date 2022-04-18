@@ -47,6 +47,7 @@ router.post(
         date: req.body.date,
         author: req.user.id,
         description: req.body.description,
+        imgurl: req.body.imgurl,
       });
       res.send(newBlog);
     } catch (err) {
