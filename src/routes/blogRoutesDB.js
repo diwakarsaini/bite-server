@@ -7,6 +7,14 @@ const authMiddlewareIsAdmin = require("../middlewares/authMiddlewareIsAdmin");
 
 const router = express.Router();
 
+router.get("/users", async (req, res) => {
+  try {
+    const blogDB = await user.find();
+    res.send(blogDB);
+  } catch (err) {
+    return res.status(500).send("Server error");
+  }
+});
 //route Get api/blog
 //desc Get all blogs
 //access public
@@ -21,7 +29,10 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const blogDB = await blogs.find();
+    console.log(blogDB);
     const userName = await user.findById(blogDB.author);
+    console.log(userName);
+
     blogDB.author = userName.name;
     res.send(blogDB);
   } catch (err) {
