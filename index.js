@@ -24,6 +24,11 @@ app.use(fileUpload());
 connectDB();
 
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
+
 app.use("/api/restaurants", restaurantRoute);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/notifications", notificationsRoutes);
