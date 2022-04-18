@@ -10,6 +10,7 @@ const userRoute = require("./src/routes/userRoutes.js");
 const authRoute = require("./src/routes/authRoutes.js");
 const jobRoute = require("./src/routes/jobRoutes");
 const blogRoute = require("./src/routes/blogRoutesDB");
+const homeRoute = require("./src/routes/homeRoutesDB");
 const applicationRoute = require("./src/routes/applicationRoutes");
 const connectDB = require("./src/config/connectDB");
 const cors = require("cors");
@@ -38,6 +39,7 @@ app.use("/api/featuredEvents", featurdEventRoute);
 app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/blog", blogRoute);
+app.use("/api/home", homeRoute);
 app.use("/api/jobs", jobRoute);
 app.use("/api/application", applicationRoute);
 
