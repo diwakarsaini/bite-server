@@ -4,6 +4,8 @@ let user = require("../models/user");
 const { check, validationResult } = require("express-validator");
 const authMiddleware = require("../middlewares/authMiddleware");
 const authMiddlewareIsAdmin = require("../middlewares/authMiddlewareIsAdmin");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const router = express.Router();
 
@@ -15,6 +17,21 @@ router.get("/users", async (req, res) => {
     return res.status(500).send("Server error");
   }
 });
+
+router.get("/isadmin", async (req, res) => {
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const userData = decoded.user;
+    if (userData.role[0] === "Admin") {
+      return res.send("true");
+    } else {
+      return res.send("false");
+    }
+  } catch (err) {
+    return res.send("false");
+  }
+});
+
 //route Get api/blog
 //desc Get all blogs
 //access public
