@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
     const config = {
       headers: {
         Authorization:
-          "Bearer _lT4eE8rZnG3PsCV8N9QsQ24StjFk8_VfIL7asd9E4ANY05Hfa4KrGbB1wOaISd4Zde_Yjbxpw_gy3ca36mogr8xECy8OAcwRv1Km8vbZIe7sFGNQUO2IcJToTVdYnYx",
+          "Bearer Tvh58J-u_HLHzoJyB3B_amiAm6WQyC7AhYoTSDBerhb7pSDvSq-X2ZuPrn0WagikTy6TuSQ11lsw76EOqRhDRY6c8uzqq4vQGOVvDY5fLfodhLrT-ZIp1syty0ldYnYx",
       },
       params: {
         term: "restaurants",
